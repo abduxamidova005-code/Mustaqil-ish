@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BYD Uzbekistan</title>
+
+<style>
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial;
+}
+
+/* TOP BANNER */
+.top-banner{
+    width: 100%;
+    background: red;
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.scroll-text{
+    white-space: nowrap;
+    display: inline-block;
+    color: white;
+    font-size: 18px;
+    padding-left: 100%;
+    animation: scroll 10s linear infinite;
+}
+
+.scroll-text:hover{
+    animation-play-state: paused;
+}
+
+@keyframes scroll{
+    0%{ transform: translateX(0); }
+    100%{ transform: translateX(-100%); }
+}
+
+/* HEADER */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#000;
+    color:white;
+}
+
+header nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+header nav a:hover{
+    background:white;
+    color:black;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    text-align:center;
+}
+
+.hero img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+}
+
+.hero-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+}
+
+/* CARS */
+.cars{
+    padding:40px;
+    text-align:center;
+}
+
+.car-list{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.car{
+    width:200px;
+    border:1px solid #ddd;
+    padding:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.car:hover{
+    transform:scale(1.05);
+}
+
+.car img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+}
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+    background:white;
+    width:300px;
+    margin:10% auto;
+    padding:20px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.close{
+    float:right;
+    cursor:pointer;
+    font-size:20px;
+}
+
+/* INFO */
+#infoText{
+    text-align:center;
+}
+</style>
+
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="top-banner">
+    <div class="scroll-text">
+        BYD ELEKTROMOBIL MOSHINALAR
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/BYD_Auto_logo.svg" width="70">
+        <div>BYD Uzbekistan</div>
+    </div>
+
+    <nav>
+        <a href="#" onclick="openInfo('tech')">Texnologiya</a>
+        <a href="#" onclick="openInfo('contact')">Aloqa</a>
+        <a href="#cars">Modellar</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <img src="https://byd-rm.uz/storage/temp/01JRHMWTPNWX9NSGXHWATKF7CR.jpg">
+    <div class="hero-text">
+        <h1>BYD Cars</h1>
+        <p>Future is electric</p>
+    </div>
+</section>
+
+<!-- CARS -->
+<section class="cars" id="cars">
+    <h2>Modellar</h2>
+    <div class="car-list">
+
+    <div class="car" onclick="openModal('BYD Han','Premium elektr sedan, 500+ km yuradi 💰 ~ 450–550 mln so‘m','https://devel.prom.uz/upload/product_logos/da/13/da13115a400d7b9dd4ada5a1df8512d3.jpeg')"> 
+        <img src="https://devel.prom.uz/upload/product_logos/da/13/da13115a400d7b9dd4ada5a1df8512d3.jpeg"> 
+        <h3>BYD Han</h3>
+    </div> 
+
+    <div class="car" onclick="openModal('BYD Seal','Sport elektr sedan, juda tez 💰 ~ 350–400 mln so‘m','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepBYkTfj5vySLsKhb4zH8oX2oUIPfOrTs8g&s')"> 
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepBYkTfj5vySLsKhb4zH8oX2oUIPfOrTs8g&s"> 
+        <h3>BYD Seal</h3> 
+    </div>
+
+    <div class="car" onclick="openModal('BYD Yuan Up','Kichik va tejamkor elektr 💰 ~ 266 mln so‘m','https://китайские-автомобили.рф/wp-content/uploads/2025/02/byd_atto_2.webp')"> 
+        <img src="https://китайские-автомобили.рф/wp-content/uploads/2025/02/byd_atto_2.webp">
+        <h3>BYD Yuan Up</h3> 
+    </div>
+
+    <div class="car" onclick="openModal('BYD Seagull','Eng arzon elektr BYD 💰 ~ 208 mln so‘m','https://solarauto.ge/_next/image?url=https%3A%2F%2Fadmin.solarauto.ge%2Fuploads%2F3_3430d08772.jpg&w=1920&q=75')">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAHPmWZlwiAj0zYlAtYywJO7ytiDPJUXjrMA&s"> 
+        <h3>BYD Seagull</h3>
+    </div>
+
+    <!-- 🔥 YANGI: BYD CHAZOR -->
+    <div class="car" onclick="openModal('BYD Chazor','Yangi gibrid sedan, tejamkor va zamonaviy 💰 ~ 300–350 mln so‘m','https://upload.wikimedia.org/wikipedia/commons/6/6f/Changan_Alsvin_2021.jpg')">
+        <img src="https://www.gazeta.uz/media/img/2024/05/TvybwR17166392845482_b.jpg">
+        <h3>BYD Chazor</h3>
+    </div>
+</section>
+</section> <!-- HERO -->
+
+<!-- CARS -->
+<section class="cars" id="cars">
+<!-- INFO MODAL -->
+<div id="infoModal" class="modal" onclick="closeInfo()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close" onclick="closeInfo()">✖</span>
+        <div id="infoText"></div>
+    </div>
+</div>
+
+<!-- CAR MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">✖</span>
+        <img id="modal-img" width="100%">
+        <h2 id="modal-title"></h2>
+        <p id="modal-text"></p>
+    </div>
+</div>
+
+<script>
+
+function openModal(title,text,img){
+    document.getElementById("modal").style.display="block";
+    document.getElementById("modal-title").innerText=title;
+    document.getElementById("modal-text").innerText=text;
+    document.getElementById("modal-img").src=img;
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+}
+
+function openInfo(type){
+    document.getElementById("infoModal").style.display="block";
+
+    if(type=="tech"){
+        document.getElementById("infoText").innerHTML=
+        "<h2>Texnologiya ⚡</h2><p>BYD eng yangi elektr batareya tizimidan foydalanadi.</p>";
+    }
+
+    if(type=="contact"){
+        document.getElementById("infoText").innerHTML=
+        "<h2>Aloqa </h2><p>Tel: +998 94 485 09 90</p>";
+    }
+}
+
+function closeInfo(){
+    document.getElementById("infoModal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
